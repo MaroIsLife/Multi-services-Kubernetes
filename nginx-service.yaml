@@ -3,13 +3,11 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: Loadbalancer
+  type: NodePort
   selector:
     app: nginx
   ports:
     - protocol: "TCP"
       port: 80
-      nodePort: 30080
-      name: http
-    - port: 443
-      name: https
+      targetPort: 80
+      nodePort: 80

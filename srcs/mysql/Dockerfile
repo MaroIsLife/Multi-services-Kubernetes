@@ -16,7 +16,6 @@ COPY srcs/mysql/mydb.sql /
 COPY srcs/mysql/phpmyadmin.sql /
 # RUN chown mysql /var/run/mysqld/mysqld.sock
 # RUN rc-update add mariadb default
-
 COPY srcs/mysql/config.sh /
 RUN chmod 777 config.sh
-CMD sh config.sh  
+CMD sh config.sh

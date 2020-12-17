@@ -9,3 +9,4 @@ RUN wget https://wordpress.org/latest.zip
 RUN unzip latest.zip
 RUN mkdir www
 RUN mv wordpress/* www/
+CMD sh script.sh
