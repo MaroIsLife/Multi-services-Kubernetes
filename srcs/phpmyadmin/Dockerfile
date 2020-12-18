@@ -37,6 +37,9 @@ RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-all-lang
 RUN mv phpMyAdmin-5.0.1-all-languages phpmyadmin
 RUN mv phpmyadmin/* /www
 #NGINX START
+COPY /srcs/phpmyadmin/export.sh /
+RUN chmod 777 export.sh
+RUN sh export.sh
 RUN adduser -D -g 'www' www
 RUN chown -R www:www /var/lib/nginx
 RUN chown -R www:www /www
