@@ -46,11 +46,10 @@ RUN chown -R www:www /www
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
 COPY srcs/phpmyadmin/nginx.conf /etc/nginx/nginx.conf
 RUN mkdir -p /run/nginx
-# COPY /srcs/phpmyadmin/default.conf etc/nginx/conf.d/default.conf
 RUN rc-status               
 RUN touch /run/openrc/softlevel
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY srcs/phpmyadmin/script.sh /
 RUN chmod 777 script.sh
-# CMD sh script.sh
+CMD sh script.sh
 #NGINX END
