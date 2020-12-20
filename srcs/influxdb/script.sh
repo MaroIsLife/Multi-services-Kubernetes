@@ -1,4 +1,6 @@
 #!/bin/bash
-/usr/bin/./telegraf&
-cd influxdb2-2.0.3_linux_amd64
-./influxd
+usr/sbin/./influxd&
+influx -execute "CREATE DATABASE influxdb"
+influx -execute "CREATE USER Maro WITH PASSWORD 'maro12345' WITH ALL PRIVILEGES"
+# /usr/bin/./telegraf&
+# ./influxd

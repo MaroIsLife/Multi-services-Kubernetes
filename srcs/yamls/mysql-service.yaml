@@ -1,15 +1,54 @@
+# apiVersion: v1 # creating a volume for mysql
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: mysql-pv-claim
+#   labels:
+#     app: mysql
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 2Gi
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: mysql
+# spec:
+#   selector:
+#     matchLabels:
+#       app: mysql
+#   strategy:
+#     type: Recreate
+#   replicas: 1
+#   template:
+#     metadata:
+#       labels:
+#         app: mysql
+#     spec:
+#       containers:
+#       - name: mysql
+#         image: image_mysql
+#         imagePullPolicy: IfNotPresent
+#         ports:
+#         - containerPort: 3306
+#         volumeMounts:
+#         - name: mysql-persistent-storage # using volume to save datas if pod crashes
+#           mountPath: /var/lib/mysql
+#       volumes:
+#       - name: mysql-persistent-storage
+#         persistentVolumeClaim:
+#           claimName: mysql-pv-claim
+# ---
 # apiVersion: v1
 # kind: Service
 # metadata:
 #   name: mysql-service
-#   labels:
-#     app: mysql
 # spec:
-#   type: NodePort
-#   ports:
-#     - protocol: "TCP"
-#       port: 3306
-#       nodePort: 3306
-#       targetPort: 3306
 #   selector:
 #     app: mysql
+#   ports:
+#     - port: 3306
+#       targetPort: 3306
+#       protocol: TCP

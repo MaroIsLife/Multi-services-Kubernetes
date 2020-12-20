@@ -1,4 +1,5 @@
 FROM alpine
+EXPOSE 3306
 RUN apk update
 RUN apk add vim
 RUN apk add expect
@@ -8,12 +9,14 @@ RUN apk add php-mysqli
 RUN rc-status               
 RUN touch /run/openrc/softlevel
 VOLUME [ “/sys/fs/cgroup” ]
-RUN /usr/bin/mysql_install_db --user=mysql --datadir="/var/lib/mysql"
-RUN /etc/init.d/mariadb setup
+# RUN /usr/bin/mysql_install_db --user=mysql --datadir="/var/lib/mysql"
+# RUN /etc/init.d/mariadb setup
+RUN mkdir -p /run/mysqld/
 RUN chown mysql:mysql /var/lib/mysql
 RUN mount -o remount,/sys/fs/cgroup
 COPY srcs/mysql/mydb.sql /
 COPY srcs/mysql/phpmyadmin.sql /
+COPY srcs/mysql/mariadb-server.cnf /etc/my.cnf.d/
 # RUN chown mysql /var/run/mysqld/mysqld.sock
 # RUN rc-update add mariadb default
 COPY srcs/mysql/config.sh /

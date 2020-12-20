@@ -18,3 +18,20 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5050
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+  labels:
+    app: wordpress
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 5050
+      # nodePort: 5050
+      targetPort: 5050
+      name: http
+  selector:
+    app: wordpress
