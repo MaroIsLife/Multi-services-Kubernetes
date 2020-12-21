@@ -2,7 +2,7 @@
 define( 'DB_NAME', 'mydb' );
 define( 'DB_USER', 'Maro' );
 define( 'DB_PASSWORD', 'root' );
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'mysql-service' );
 define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
 define( 'AUTH_KEY',         'WnSg;n/(hbb<9c@[ b6!NxfDFdOsX3MkJ#)m8qMz@Tua#&oZsS:/C*>9L41%,(QZ' );

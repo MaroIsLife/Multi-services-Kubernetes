@@ -4,19 +4,19 @@ RUN apk update
 RUN apk add openrc --no-cache
 RUN apk add vim
 RUN apk add wget
-RUN wget http://dl-cdn.alpinelinux.org/alpine/edge/main/x86_64/musl-1.2.2_pre6-r0.apk
-RUN tar -zxvf musl-1.2.2_pre6-r0.apk
+# RUN wget http://dl-cdn.alpinelinux.org/alpine/edge/main/x86_64/musl-1.2.2_pre6-r0.apk
+# RUN tar -zxvf musl-1.2.2_pre6-r0.apk
+# RUN apk update
+# RUN apk add --upgrade musl
+RUN apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/x86_64/grafana-7.3.5-r1.apk
+# RUN tar -zxvf grafana-7.3.5-r1.apk
 RUN apk update
-RUN apk add --upgrade musl
-RUN wget http://dl-cdn.alpinelinux.org/alpine/edge/community/x86_64/grafana-7.3.5-r1.apk
-RUN tar -zxvf grafana-7.3.5-r1.apk
-RUN apk update
-RUN wget https://dl.grafana.com/enterprise/release/grafana-enterprise-7.3.6.linux-amd64.tar.gz
-RUN tar -zxvf grafana-enterprise-7.3.6.linux-amd64.tar.gz
-RUN cd /grafana-7.3.6/bin
+# RUN wget https://dl.grafana.com/enterprise/release/grafana-enterprise-7.3.6.linux-amd64.tar.gz
+# RUN tar -zxvf grafana-enterprise-7.3.6.linux-amd64.tar.gz
+# RUN cd /grafana-7.3.6/bin
 COPY srcs/grafana/script.sh /
 RUN chmod 777 script.sh
-CMD sh script.sh
+# CMD sh script.sh
 
 
 #TELEGRAF START
