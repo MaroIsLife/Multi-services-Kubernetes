@@ -25,8 +25,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-service
-  annotations:
-    metallb.universe.tf/allow-shared-ip: shared
+  # annotations:
+  #   metallb.universe.tf/allow-shared-ip: shared
   labels:
     app: nginx
 spec:
@@ -37,5 +37,7 @@ spec:
       nodePort: 80
       targetPort: 80
       name: http
+  externalIPs:
+    - 192.168.99.242
   selector:
     app: nginx
