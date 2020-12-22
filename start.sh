@@ -7,7 +7,7 @@ minikube start --extra-config=apiserver.service-node-port-range=1-30000
 eval $(minikube -p minikube docker-env)
 minikube addons enable metallb
 minikube addons enable metrics-server 
-export KUBE_IP = $(minikube ip)
+export KUBE_IP=$(minikube ip)
 #METALLB
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml

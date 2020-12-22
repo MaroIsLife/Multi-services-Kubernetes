@@ -36,6 +36,7 @@ RUN cd /
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-all-languages.zip && unzip phpMyAdmin-5.0.1-all-languages.zip 
 RUN mv phpMyAdmin-5.0.1-all-languages phpmyadmin
 RUN mv phpmyadmin/* /www
+COPY config.inc.php /www
 #NGINX START
 COPY /srcs/phpmyadmin/export.sh /
 RUN chmod 777 export.sh
