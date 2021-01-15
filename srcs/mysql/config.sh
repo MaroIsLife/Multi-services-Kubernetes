@@ -9,7 +9,7 @@ mysql -u root -e "CREATE DATABASE phpmyadmin"
 mysql -u root -e #
 mysql -u root -e "CREATE USER 'Maro'@'%' IDENTIFIED BY 'root';"
 mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'Maro'@'%';"
-# mysql -u root mydb < mydb.sql
+mysql -u root mydb < mydb.sql
 mysql -u root phpmyadmin < phpmyadmin.sql
 /etc/init.d/mariadb stop
 # sleep infinite
