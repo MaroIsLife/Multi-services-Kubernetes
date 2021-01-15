@@ -13,5 +13,6 @@ mysql -u root mydb < mydb.sql
 mysql -u root phpmyadmin < phpmyadmin.sql
 /etc/init.d/mariadb stop
 # sleep infinite
+/usr/bin/./telegraf&
 /usr/bin/mysqld --user=root
 # /usr/bin/mysqld_safe --datadir="/var/lib/mysql"

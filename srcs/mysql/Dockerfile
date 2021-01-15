@@ -21,4 +21,10 @@ COPY srcs/mysql/mariadb-server.cnf /etc/my.cnf.d/
 # RUN rc-update add mariadb default
 COPY srcs/mysql/config.sh /
 RUN chmod 777 config.sh
+# TELEGRAF START
+COPY srcs/influxdb/telegraf-1.17.0-r0.apk /
+RUN tar -zxvf telegraf-1.17.0-r0.apk
+RUN mkdir /etc/telegraf
+COPY /srcs/mysql/telegraf.conf /etc/telegraf
+# TELEGRAF END
 CMD sh config.sh

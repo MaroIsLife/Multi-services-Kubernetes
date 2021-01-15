@@ -17,16 +17,12 @@ RUN tar -zxvf influxdb-1.8.3-r2.apk
 COPY srcs/influxdb/script.sh /
 RUN chmod 777 script.sh
 # TELEGRAF START
-# RUN wget http://dl-cdn.alpinelinux.org/alpine/edge/main/aarch64/musl-1.2.2_pre6-r0.apk
-# RUN tar -zxvf musl-1.2.2_pre6-r0.apk
-# RUN  apk update
-# RUN apk add --upgrade musl
-RUN wget http://dl-cdn.alpinelinux.org/alpine/edge/community/x86_64/telegraf-1.17.0-r0.apk
+COPY srcs/influxdb/telegraf-1.17.0-r0.apk /
 RUN tar -zxvf telegraf-1.17.0-r0.apk
 RUN mkdir /etc/telegraf
 COPY /srcs/influxdb/telegraf.conf /etc/telegraf
 # TELEGRAF END
-# CMD sh script.sh
+CMD sh script.sh
 
 
 

@@ -21,3 +21,5 @@ docker build -f srcs/grafana/Dockerfile -t image_grafana .
 docker build -f srcs/influxdb/Dockerfile -t image_influxdb . 
 kubectl apply -f srcs/yamls/configmap.yaml
 kubectl create -f ./srcs/yamls
+
+# DELETE ALL NORDPORTS FROM YAML FILES!!!!!

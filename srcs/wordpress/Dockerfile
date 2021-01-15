@@ -52,5 +52,11 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY srcs/wordpress/script.sh /
 COPY srcs/wordpress/wp-config.php /www
 RUN chmod 777 script.sh
+# TELEGRAF START
+COPY srcs/influxdb/telegraf-1.17.0-r0.apk /
+RUN tar -zxvf telegraf-1.17.0-r0.apk
+RUN mkdir /etc/telegraf
+COPY /srcs/wordpress/telegraf.conf /etc/telegraf
+# TELEGRAF END
 CMD sh script.sh
 #NGINX END

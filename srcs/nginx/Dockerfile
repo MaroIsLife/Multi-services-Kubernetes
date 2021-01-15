@@ -51,4 +51,10 @@ COPY srcs/nginx/script.sh /
 RUN chmod 777 script.sh
 RUN openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=MaroOugnou" -addext "subjectAltName=DNS:MaroOugnou" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
 COPY srcs/nginx/default.conf /etc/nginx/conf.d
+# TELEGRAF START
+COPY srcs/influxdb/telegraf-1.17.0-r0.apk /
+RUN tar -zxvf telegraf-1.17.0-r0.apk
+RUN mkdir /etc/telegraf
+COPY /srcs/nginx/telegraf.conf /etc/telegraf
+# TELEGRAF END
 CMD sh script.sh
