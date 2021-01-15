@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.11
 EXPOSE 80
 EXPOSE 443
 RUN apk --update add \

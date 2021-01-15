@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.11
 EXPOSE 5050
 RUN apk update
 RUN apk add nginx
@@ -50,6 +50,7 @@ RUN rc-status
 RUN touch /run/openrc/softlevel
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY srcs/wordpress/script.sh /
+COPY srcs/wordpress/wp-config.php /www
 RUN chmod 777 script.sh
 CMD sh script.sh
 #NGINX END

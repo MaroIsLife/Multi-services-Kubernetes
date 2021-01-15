@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.11
 EXPOSE 3000
 RUN apk update
 RUN apk add openrc --no-cache
