@@ -53,5 +53,3 @@ spec:
       targetPort: 3306
       protocol: TCP
       name: http
-  # externalIPs:
-  #   - 192.168.99.242

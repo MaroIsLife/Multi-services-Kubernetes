@@ -36,8 +36,6 @@ RUN adduser -D -g 'www' www
 RUN mkdir /www
 RUN chown -R www:www /var/lib/nginx
 RUN chown -R www:www /www
-RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
-COPY srcs/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY srcs/nginx/index.html /www/index.html
 RUN mkdir -p /run/nginx
 RUN rc-status

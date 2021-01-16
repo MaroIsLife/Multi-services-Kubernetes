@@ -34,7 +34,7 @@ spec:
   ports:
     - protocol: TCP
       port: 5050
-      nodePort: 5050
+      # nodePort: 5050
       targetPort: 5050
       name: http
   externalIPs:

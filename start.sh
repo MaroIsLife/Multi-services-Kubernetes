@@ -3,7 +3,8 @@ export MINIKUBE_HOME=/goinfre/mougnou
 # docker-machine env default
 # eval $(docker-machine env default)
 # minikube delete
-minikube start --driver virtualbox --extra-config=apiserver.service-node-port-range=1-30000
+minikube start --driver virtualbox 
+# --extra-config=apiserver.service-node-port-range=1-30000
 eval $(minikube -p minikube docker-env)
 minikube addons enable metallb
 minikube addons enable metrics-server 
@@ -20,6 +21,6 @@ docker build -f srcs/mysql/Dockerfile -t image_mysql .
 docker build -f srcs/grafana/Dockerfile -t image_grafana .
 docker build -f srcs/influxdb/Dockerfile -t image_influxdb . 
 kubectl apply -f srcs/yamls/configmap.yaml
-kubectl create -f ./srcs/yamls
+kubectl create -f srcs/yamls
 
 # DELETE ALL NORDPORTS FROM YAML FILES!!!!!
