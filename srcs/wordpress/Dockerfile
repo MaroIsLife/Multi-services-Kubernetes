@@ -34,7 +34,7 @@ RUN apk add wget
 RUN wget https://wordpress.org/latest.zip
 RUN unzip latest.zip
 RUN mkdir www
-RUN mv wordpress/* www/
+RUN mv wordpress www
 
 #NGINX START
 COPY /srcs/wordpress/export.sh /

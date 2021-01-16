@@ -32,12 +32,12 @@ RUN apk add php-mysqli
 RUN apk add openrc --no-cache
 RUN apk add wget
 RUN mkdir /www
-RUN mkdir /www/tmp
+# RUN mkdir -p /www/phpmyadmin/tmp
 RUN cd /
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-all-languages.zip && unzip phpMyAdmin-5.0.1-all-languages.zip 
 RUN mv phpMyAdmin-5.0.1-all-languages phpmyadmin
-RUN mv phpmyadmin/* /www
-COPY srcs/phpmyadmin/config.inc.php /www
+RUN mv phpmyadmin /www
+COPY srcs/phpmyadmin/config.inc.php /www/phpmyadmin
 #NGINX START
 COPY /srcs/phpmyadmin/export.sh /
 RUN chmod 777 export.sh
