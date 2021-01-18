@@ -32,8 +32,8 @@ RUN apk add openssl
 RUN apk add nginx
 RUN apk add vim
 #SSH
-# RUN apk add openssh
-# RUN rc-update add sshd
+RUN apk add openssh
+RUN rc-update add sshd
 RUN apk add openrc --no-cache
 RUN adduser -D -g 'www' www
 RUN mkdir /www
