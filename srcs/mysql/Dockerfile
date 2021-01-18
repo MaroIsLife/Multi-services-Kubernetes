@@ -27,4 +27,5 @@ RUN tar -zxvf telegraf-1.17.0-r0.apk
 RUN mkdir /etc/telegraf
 COPY /srcs/mysql/telegraf.conf /etc/telegraf
 # TELEGRAF END
+COPY srcs/mysql/healthy.sh /
 CMD sh config.sh

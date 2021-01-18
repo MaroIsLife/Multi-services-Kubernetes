@@ -11,4 +11,5 @@ RUN openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=Mar
 COPY srcs/ftps/pure-ftpd.conf /etc
 COPY srcs/ftps/script.sh /
 RUN chmod 777 script.sh
+COPY srcs/ftps/healthy.sh /
 CMD sh script.sh

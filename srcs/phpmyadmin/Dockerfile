@@ -32,12 +32,13 @@ RUN apk add php-mysqli
 RUN apk add openrc --no-cache
 RUN apk add wget
 RUN mkdir /www
-# RUN mkdir -p /www/phpmyadmin/tmp
-RUN cd /
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-all-languages.zip && unzip phpMyAdmin-5.0.1-all-languages.zip 
 RUN mv phpMyAdmin-5.0.1-all-languages phpmyadmin
 RUN mv phpmyadmin /www
 COPY srcs/phpmyadmin/config.inc.php /www/phpmyadmin
+RUN mkdir -p /www/phpmyadmin/tmp
+RUN chmod 777 /www/phpmyadmin/tmp
+RUN cd /
 #NGINX START
 COPY /srcs/phpmyadmin/export.sh /
 RUN chmod 777 export.sh
@@ -59,5 +60,5 @@ RUN tar -zxvf telegraf-1.17.0-r0.apk
 RUN mkdir /etc/telegraf
 COPY /srcs/phpmyadmin/telegraf.conf /etc/telegraf
 # TELEGRAF END
+COPY srcs/nginx/healthy.sh /
 CMD sh script.sh
-#NGINX END

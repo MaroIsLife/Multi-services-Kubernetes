@@ -18,13 +18,13 @@ spec:
       - name: nginx
         image: image_nginx
         imagePullPolicy: Never
-      # livenessProbe:
-      #   exec:
-      #   command:
-      #   - sh
-      #   - healthy.sh
-      # initialDelaySeconds: 60
-      # periodSeconds: 30
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - healthy.sh
+          initialDelaySeconds: 60
+          periodSeconds: 30
         ports:
         - containerPort: 80
         - containerPort: 443

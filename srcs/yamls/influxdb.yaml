@@ -31,6 +31,13 @@ spec:
       - name: influxdb
         image: image_influxdb 
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - healthy.sh
+          initialDelaySeconds: 60
+          periodSeconds: 30
         ports:
         - containerPort: 8086
         volumeMounts:
