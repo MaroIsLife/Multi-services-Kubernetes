@@ -4,4 +4,3 @@
 cd usr/share/grafana/conf/
 /usr/bin/./telegraf&
 /usr/sbin/grafana-server -config /usr/share/grafana/conf/defaults.ini
-# tail -f /dev/null

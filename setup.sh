@@ -24,3 +24,4 @@ kubectl create -f srcs/yamls
 
 # IP = 192.168.99.242
 # DONT FORGET TO UNCOMMENT SSH
+# ALSO ADD SSH TO HEALTHY.SH
