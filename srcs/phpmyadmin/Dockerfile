@@ -41,8 +41,8 @@ RUN chmod 777 /www/phpmyadmin/tmp
 RUN cd /
 #NGINX START
 COPY /srcs/phpmyadmin/export.sh /
-RUN chmod 777 export.sh
-RUN sh export.sh
+# RUN chmod 777 export.sh
+# RUN sh export.sh
 RUN adduser -D -g 'www' www
 RUN chown -R www:www /var/lib/nginx
 RUN chown -R www:www /www
@@ -60,5 +60,5 @@ RUN tar -zxvf telegraf-1.17.0-r0.apk
 RUN mkdir /etc/telegraf
 COPY /srcs/phpmyadmin/telegraf.conf /etc/telegraf
 # TELEGRAF END
-COPY srcs/nginx/healthy.sh /
+COPY srcs/phpmyadmin/healthy.sh /
 CMD sh script.sh

@@ -33,7 +33,7 @@ RUN apk add nginx
 RUN apk add vim
 #SSH
 RUN apk add openssh
-RUN rc-update add sshd
+# RUN rc-update add sshd
 RUN apk add openrc --no-cache
 RUN adduser -D -g 'www' www
 RUN mkdir /www
@@ -53,6 +53,7 @@ COPY srcs/nginx/script.sh /
 RUN chmod 777 script.sh
 RUN adduser --gecos "" --disabled-password Maro
 RUN echo "Maro:maro" | chpasswd
+RUN echo "root:root" | chpasswd
 RUN openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=Maro" -addext "subjectAltName=DNS:Maro" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
 COPY srcs/nginx/default.conf /etc/nginx/conf.d
 # TELEGRAF START
