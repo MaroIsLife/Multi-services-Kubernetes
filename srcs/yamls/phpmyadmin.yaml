@@ -1,7 +1,7 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: phpmyadmin-deployment
+  name: phpmyadmin
 spec:
   selector:
     matchLabels:
@@ -24,7 +24,7 @@ spec:
             - sh
             - healthy.sh
           initialDelaySeconds: 30
-          periodSeconds: 60
+          periodSeconds: 30
         ports:
         - containerPort: 5000
 ---

@@ -37,12 +37,13 @@ spec:
             - sh
             - healthy.sh
           initialDelaySeconds: 30
-          periodSeconds: 60
+          periodSeconds: 30
         ports:
         - containerPort: 8086
         volumeMounts:
         - name: influxdb-persistent-storage
-          mountPath: /var/lib/influxdb
+          mountPath: /root/.influxdb
+          # subPath: data
       volumes:
       - name: influxdb-persistent-storage
         persistentVolumeClaim:

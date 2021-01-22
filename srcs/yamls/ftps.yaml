@@ -1,7 +1,7 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: ftps-deployment
+  name: ftps
 spec:
   selector:
     matchLabels:
@@ -23,7 +23,7 @@ spec:
             command:
             - sh
             - healthy.sh
-          initialDelaySeconds: 60
+          initialDelaySeconds: 30
           periodSeconds: 30
         ports:
         - containerPort: 21

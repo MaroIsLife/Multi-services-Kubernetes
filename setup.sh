@@ -1,6 +1,7 @@
 #!/bin/bash
 export MINIKUBE_HOME=/goinfre/mougnou
 minikube start --driver virtualbox 
+minikube config set memory 3000
 eval $(minikube -p minikube docker-env)
 minikube addons enable metallb
 minikube addons enable metrics-server 
@@ -25,5 +26,5 @@ kubectl apply -f srcs/yamls/configmap.yaml
 kubectl create -f srcs/yamls
 
 # IP = 192.168.99.242
-# ADD USERS AND AN ADMIN ON WORDPRESS
-# Test Healthy.sh in MYSQL
+
+#REPLACE EXPORT WITH = or -eq

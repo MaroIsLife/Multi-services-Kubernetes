@@ -1,7 +1,7 @@
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
-  name: grafana-deployment
+  name: grafana
 spec:
   selector:
     matchLabels:
@@ -24,7 +24,7 @@ spec:
             - sh
             - healthy.sh
           initialDelaySeconds: 30
-          periodSeconds: 60
+          periodSeconds: 30
         ports:
         - containerPort: 3000
 ---

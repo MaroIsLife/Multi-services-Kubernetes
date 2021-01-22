@@ -4,7 +4,8 @@ RUN apk update
 RUN apk add openrc --no-cache
 RUN apk add vim
 RUN apk add wget
-RUN apk add influxdb
+# RUN apk add influxdb
+# RUN apk add influxdb --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/
 # RUN wget http://dl-cdn.alpinelinux.org/alpine/edge/main/aarch64/musl-1.2.2_pre6-r0.apk
 # RUN tar -zxvf musl-1.2.2_pre6-r0.apk
 RUN  apk update
@@ -24,8 +25,6 @@ COPY /srcs/influxdb/telegraf.conf /etc/telegraf
 # TELEGRAF END
 COPY srcs/influxdb/healthy.sh /
 CMD sh script.sh
-
-
 
 
 # etc/
