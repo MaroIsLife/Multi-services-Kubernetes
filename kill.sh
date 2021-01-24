@@ -18,6 +18,9 @@ then
     sleep 1
     echo "Shutting Down Influxdb.."
     kubectl exec deploy/influxdb -- pkill influx
+    sleep 1
+    echo "Shutting Down Vsftpd.."
+    kubectl exec deploy/ftps -- pkill vsftpd
 else
     echo "Shutting down $2"
     kubectl exec deploy/$1 -- pkill $2
